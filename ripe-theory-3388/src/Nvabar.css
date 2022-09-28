@@ -1,0 +1,16 @@
+.btn-navbar div:hover{
+   border-bottom: 3px solid orangered;
+}
+.main-container{
+    width: 80%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: auto;
+}
+.for_employers{
+    background-color: "white";
+    box-shadow: none;
+    border-left: 0.5 px solid; 
+}

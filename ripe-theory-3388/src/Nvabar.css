@@ -3,14 +3,33 @@
 }
 .main-container{
     width: 80%;
-    height: 50px;
+    height: 70px;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
     margin: auto;
+    
+}
+.Logo{
+    width: 165px;
+    height: 70px;
+    display: flex;
+    align-items:center ;
+    justify-content: center;
 }
 .for_employers{
     background-color: "white";
     box-shadow: none;
     border-left: 0.5 px solid; 
+    color: #445578;
+}
+.btn-navbar{
+    margin-left: 80px;margin-top: 10px;color: #445578;font-weight: 500;
+
+}
+.side-nav{
+    margin-left: 320px;
+}
+.Topcompanies h1:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color: #445578;
 }

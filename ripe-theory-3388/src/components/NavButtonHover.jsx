@@ -57,7 +57,7 @@ function ForEmployers(){
         >
             <Menu>
   <MenuButton as={Button} bg="white" _hover={{borderBottom:"3px solid orange"}}  _focus={{bg:"white"}} rightIcon={<ChevronDownIcon />}>
-    For employers only
+    For employers
   </MenuButton>
   <MenuList>
     <MenuItem>Download</MenuItem>
@@ -79,7 +79,7 @@ function DrawerExample() {
   
     return (
       < >
-        <Button color="#457eff" borderRadius="full" backgroundColor="white" border="1px solid #457eff" onClick={onOpen}>
+        <Button color="#457eff"  width="80px" borderRadius="full" backgroundColor="white" border="1px solid #457eff" onClick={onOpen}>
           Login
         </Button>
         <Drawer
@@ -93,7 +93,7 @@ function DrawerExample() {
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader borderBottomWidth='1px' marginBottom="20px" marginTop="20px">
+            <DrawerHeader borderBottomWidth='1px'  marginBottom="20px" marginTop="20px">
               Login
             </DrawerHeader>
   

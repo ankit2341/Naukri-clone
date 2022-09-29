@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+*{
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+.SeachDream{
+  width: 65%;
+  height: 280px;
+  text-align: center;
+  margin: auto;
+  margin-top: 60px;
+  background: #fff;
+  
+}

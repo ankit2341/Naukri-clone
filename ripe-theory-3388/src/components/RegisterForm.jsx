@@ -1,5 +1,6 @@
 import { FormControl, FormLabel, Input, FormHelperText, InputGroup, InputLeftAddon, HStack, RadioGroup, Radio, Button, Checkbox, Image, Alert, AlertIcon } from "@chakra-ui/react";
 import { useState } from "react";
+import Confetti from 'react-confetti'
 import { useNavigate } from "react-router-dom";
 import "../Register.css"
 
@@ -9,26 +10,35 @@ export default function RegistrationForm(){
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("");
   const [mobile,setMobile]=useState("");
-  const navigate=useNavigate()
+  const navigate=useNavigate();
 
+  var signinup=[JSON.parse(localStorage.getItem("signinup"))]||[];
+
+  function checkemail(Email){
+    let filter=signinup.filter((el)=>{
+      return Email===el.Email;
+    })
+    if(filter.length>0){return false}
+    else{return true}
+  }
   const handlesubmit=()=>{
     // event.preventdefault();
+    let user={
+      username:name,
+      Email:email,
+      Password:password,
+      Mobile: mobile
+    }
     
-   fetch(`https://reqres.in/api/register`,{
-    method:"post",
-    headers:{
-      "Content-Type":"application/json"
-    },
-    body:JSON.stringify({email,password})
-   })
-   .then(res=>res.json())
-   .then(res=>{
-       if(res.token && res.id){
-      navigate("/")
-       }
-   })
-   .catch(err=>console.log(err))
-  
+    if (checkemail(user.Email)==true){
+      signinup.push(user);
+      localStorage.setItem("signinup",JSON.stringify(user));
+      alert("Registration Success")
+    }
+    else{
+      alert("Account Already exists")
+    }
+
 }
 
   // console.log(username);

@@ -17,23 +17,23 @@ export default function Discover(){
         </div>
 
         <div style={{width:"40%",height:"400px",backgroundColor:"white"}}>
-        <SimpleGrid columns={2} rows={3} spacingX='20px' spacingY='20px'>
-  <Box bg='white' height='120px' style={{display:"flex",alignItems:"center",justifyContent:"left",marginLeft:"20px",border:"1px solid #EAF1F5"}}>
+        <SimpleGrid columns={2} rows={3}  spacingX='20px' spacingY='20px'>
+  <Box _hover={{boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px"}} bg='white' height='120px' style={{display:"flex",alignItems:"center",justifyContent:"left",paddingLeft:"20px",border:"1px solid #EAF1F5"}}>
     Full Stack Devloper <ArrowForwardIcon/>
   </Box>
-  <Box bg='white' style={{display:"flex",alignItems:"center",justifyContent:"left",marginLeft:"20px",border:"1px solid #EAF1F5"}} height='120px'>
+  <Box _hover={{boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px"}} bg='white' style={{display:"flex",alignItems:"center",justifyContent:"left",paddingLeft:"20px",border:"1px solid #EAF1F5"}} height='120px'>
     Mobile Devloper <ArrowForwardIcon/>
   </Box>
-  <Box bg='white' height='120px' style={{display:"flex",alignItems:"center",justifyContent:"left",marginLeft:"20px",border:"1px solid #EAF1F5"}}>
+  <Box _hover={{boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px"}} bg='white' height='120px' style={{display:"flex",alignItems:"center",justifyContent:"left",paddingLeft:"20px",border:"1px solid #EAF1F5"}}>
     Frontend devloper <ArrowForwardIcon/>
   </Box>
-  <Box bg='white' height='120px' style={{display:"flex",alignItems:"center",justifyContent:"left",marginLeft:"20px",border:"1px solid #EAF1F5"}}>
+  <Box _hover={{boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px"}} bg='white' height='120px' style={{display:"flex",alignItems:"center",justifyContent:"left",paddingLeft:"20px",border:"1px solid #EAF1F5"}}>
     Devops engineer <ArrowForwardIcon/>
   </Box>
-  <Box bg='white' height='120px' style={{display:"flex",alignItems:"center",justifyContent:"left",marginLeft:"20px",border:"1px solid #EAF1F5"}}>
+  <Box _hover={{boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px"}} bg='white' height='120px' style={{display:"flex",alignItems:"center",justifyContent:"left",paddingLeft:"20px",border:"1px solid #EAF1F5"}}>
     Engineering Manager <ArrowForwardIcon/>
   </Box>
-  <Box bg='white' height='120px' style={{display:"flex",alignItems:"center",justifyContent:"left",marginLeft:"20px",border:"1px solid #EAF1F5"}}>
+  <Box _hover={{boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px"}} bg='white' height='120px' style={{display:"flex",alignItems:"center",justifyContent:"left",paddingLeft:"20px",border:"1px solid #EAF1F5"}}>
     Technical Lead <ArrowForwardIcon/>
   </Box>
 </SimpleGrid>

@@ -1,7 +1,39 @@
-import { FormControl, FormLabel, Input, FormHelperText, InputGroup, InputLeftAddon, HStack, RadioGroup, Radio, Button, Checkbox, Image } from "@chakra-ui/react";
+import { FormControl, FormLabel, Input, FormHelperText, InputGroup, InputLeftAddon, HStack, RadioGroup, Radio, Button, Checkbox, Image, Alert, AlertIcon } from "@chakra-ui/react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Register.css"
 
+
 export default function RegistrationForm(){
+  const [name,setname]=useState("");
+  const [email,setEmail]=useState("");
+  const [password,setPassword]=useState("");
+  const [mobile,setMobile]=useState("");
+  const navigate=useNavigate()
+
+  const handlesubmit=()=>{
+    // event.preventdefault();
+    
+   fetch(`https://reqres.in/api/register`,{
+    method:"post",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify({email,password})
+   })
+   .then(res=>res.json())
+   .then(res=>{
+       if(res.token && res.id){
+      navigate("/")
+       }
+   })
+   .catch(err=>console.log(err))
+  
+}
+
+  // console.log(username);
+  // console.log("email",email);
+  // console.log("pass",password);
 
     return (
       <>
@@ -14,14 +46,14 @@ export default function RegistrationForm(){
            <div style={{marginTop:"20px",marginBottom:"20px",backgroundColor: "#fff"}}>
          <FormControl backgroundColor="#fff" >
                 <FormLabel>Full name</FormLabel>
-          <Input  placeholder='What is your full name?' />
+          <Input value={name} onChange={(e)=>{setname(e.target.value)}} placeholder='What is your full name?' />
          </FormControl>
         </div>
 
         <div style={{marginTop:"20px",marginBottom:"20px",background: "#fff"}}>
         <FormControl isRequired backgroundColor="#fff">
   <FormLabel>Email address</FormLabel>
-  <Input type='email'  placeholder="Enter Email" />
+  <Input type='email' value={email} onChange={(e)=>{setEmail(e.target.value)}} placeholder="Enter Email" />
   <FormHelperText>We'll send you relevant jobs in your mail</FormHelperText>
 </FormControl>
         </div>
@@ -29,7 +61,7 @@ export default function RegistrationForm(){
         <div style={{marginTop:"20px",marginBottom:"20px",background: "#fff"}}>
         <FormControl isRequired backgroundColor="#fff">
   <FormLabel>Password</FormLabel>
-  <Input type='password' placeholder="Enter password" />
+  <Input type='password' value={password} onChange={(e)=>{setPassword(e.target.value)}} placeholder="Enter password" />
   <FormHelperText>Create a password for your account</FormHelperText>
 </FormControl>
         </div>
@@ -39,7 +71,7 @@ export default function RegistrationForm(){
     <FormLabel>Mobile Number</FormLabel>
     <InputGroup>
     <InputLeftAddon children='+91' />
-    <Input type='tel' placeholder='Mobile number' />
+    <Input value={mobile} onChange={(e)=>{setMobile(e.target.value)}} type='tel' placeholder='Mobile number' />
   </InputGroup>
   <FormHelperText>Recreuiters will call you on this number</FormHelperText>
   </FormControl>
@@ -73,7 +105,7 @@ export default function RegistrationForm(){
 
     <div style={{marginTop:"20px",marginBottom:"20px",background: "#fff"}}>
       <p style={{fontSize:"12px",color:"#445578",marginBottom:"10px"}}>By clicking Register, you agree to the Terms and Conditions & Privacy Policy of Naukri.com</p>
-    <Button borderRadius="full" _hover={{color:"black"}} marginTop="10px" background="#fff" color='#fff' backgroundColor="#457eff">Register Now</Button>
+    <Button borderRadius="full" _hover={{color:"black"}} marginTop="10px" background="#fff" color='#fff' backgroundColor="#457eff" onClick={handlesubmit}>Register Now</Button>
     </div>
         </div>
       </>

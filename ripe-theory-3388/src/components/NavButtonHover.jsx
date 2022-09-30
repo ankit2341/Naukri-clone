@@ -1,6 +1,7 @@
 import { AddIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, FormLabel, Image, Input, InputGroup, InputLeftAddon, InputRightAddon, InputRightElement, Menu, MenuButton, MenuItem, MenuList, Select, Stack, Textarea, useDisclosure } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Nvabar.css"
 
  function Jobs(){
@@ -76,6 +77,31 @@ function DrawerExample() {
     const firstField = React.useRef();
     const [show, setShow] = React.useState(false)
     const handleClick = () => setShow(!show)
+    const [email,setEmail]=useState("");
+    const [password,setPassword]=useState("");
+    const navigate=useNavigate()
+
+
+    const handlesubmit=()=>{
+      // event.preventdefault();
+      
+     fetch(`https://reqres.in/api/login`,{
+      method:"post",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({email,password})
+     })
+     .then(res=>res.json())
+     .then(res=>{
+         if(res.token){
+          alert("login success")
+            navigate("/")
+         }
+     })
+     .catch(err=>console.log(err))
+    
+  }
   
     return (
       < >
@@ -103,7 +129,7 @@ function DrawerExample() {
                   <FormLabel htmlFor='username' fontSize="sm">Email ID / Username</FormLabel>
                   <Input
                     ref={firstField}
-                    id='username' 
+                    id='username' value={email} onChange={(e)=>{setEmail(e.target.value)}}
                     placeholder='Enter your active Email ID / Username' style={{marginBottom:"20px",border:"1px solid black",borderRadius:"0px"}}
                   />
                 </Box>
@@ -118,18 +144,18 @@ function DrawerExample() {
                  <InputGroup size='md'>
       <Input
         pr='4.5rem'
-        type={show ? 'text' : 'password'}
+        type={show ? 'text' : 'password'}  value={password} onChange={(e)=>{setPassword(e.target.value)}}
         placeholder='Enter password' style={{marginBottom:"0px",border:"1px solid black",borderRadius:"0px"}}
       />
       <InputRightElement width='4.5rem'>
-        <Button h='1.75rem' size='sm' onClick={handleClick}>
+        <Button h='1.75rem' size='sm' >
           {show ? 'Hide' : 'Show'}
         </Button>
       </InputRightElement>
     </InputGroup>
     <FormLabel htmlFor='username' fontSize="14px" marginBottom="15px" marginTop="10px" color="blue" fontWeight="normal" textAlign="right" >Forgot Password?</FormLabel>
                 </Box>
-                <Button backgroundColor='#4a90e2' color="white" borderRadius="0px" boxShadow="0 2px 6px 0 rgb(0 0 0 / 20%);" _hover={{color:"black"}} size="md">Login</Button>
+                <Button backgroundColor='#4a90e2' color="white" borderRadius="0px" boxShadow="0 2px 6px 0 rgb(0 0 0 / 20%);" _hover={{color:"black"}} size="md" onclick={handlesubmit}>Login</Button>
                 <Button Color='#457eff' textDecoration="none" variant='link' marginBottom="10px">Use OTP to Login</Button>
                 <p style={{color:"gray",marginTop:"10px",marginBottom:"0px"}}>-------------------------------or------------------------------</p>
                 <Button _hover={{backgroundColor:"lightgray"}} leftIcon="" colorScheme='#457eff' marginTop="0px" boxShadow="rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px" variant='ghost'>

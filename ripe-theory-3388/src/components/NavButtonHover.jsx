@@ -113,7 +113,7 @@ function DrawerExample() {
           placement='right'
           initialFocusRef={firstField}
           onClose={onClose}
-          size="sm"
+          size="sm" 
           style={{paddingLeft:"50px"}}
         >
           <DrawerOverlay />

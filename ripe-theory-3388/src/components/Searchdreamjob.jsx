@@ -1,7 +1,34 @@
 import { ArrowForwardIcon, RepeatClockIcon,InfoOutlineIcon,ArrowUpDownIcon,AtSignIcon, InfoIcon } from "@chakra-ui/icons";
 import { Box, Button, Input, InputGroup, InputLeftElement, Select, SimpleGrid } from "@chakra-ui/react";
+import { useState } from "react";
+import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function SearchDreamJob(){
+
+  const [skills,setSkills]=useState("")
+  const [experience,setExperience]=useState("fresher");
+  const [location,setLocation]=useState("");
+  const navigate=useNavigate();
+
+  const handlesearch=()=>{
+    if(skills=="" || location==""){
+      return(
+       alert("please fill skills and location to search")
+      )
+    }
+  axios(`https://www.arbeitnow.com/api/job-board-api?per_page=10&page=1`,{
+    method:"get",
+  })
+    // .then((res)=>res.json())
+    // .then((res)=>{res.json()})
+    .then((res)=>{
+      // let searcharr=[];
+      localStorage.removeItem("searcharr");
+      localStorage.setItem("searcharr",JSON.stringify(res.data.data));
+      navigate("/searchresults")    
+    })
+  }
 
 
     return (
@@ -20,18 +47,18 @@ export default function SearchDreamJob(){
       pointerEvents='none'
       children={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="gray" width="20" height="20"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg>}
     />
-    <Input type='tel' border="none" width="350px" placeholder='Enter skills / designations / companies' focusBorderColor="white" />
+    <Input type='tel'value={skills} onChange={(e)=>{setSkills(e.target.value)}} border="none" width="350px" placeholder='Enter skills / designations / companies' focusBorderColor="white" />
   </InputGroup>
   <Select placeholder='Select experience' width="500px" variant="unstyled" style={{border:"none"}} color="gray" focusBorderColor="white"  >
-  <option  value='option1'>Fresher (less than one year)</option>
-  <option value='option2'>1 year</option>
-  <option value='option3'>2 years</option>
-  <option value='option3'>3 years</option>
-  <option value='option3'>4 years</option>
-  <option value='option3'>5 years</option>
+  <option  value='fresher' onChange={(e)=>{setExperience(e.target.value)}}>Fresher (less than one year)</option>
+  <option value='1'>1 year</option>
+  <option value='2'>2 years</option>
+  <option value='3'>3 years</option>
+  <option value='4'>4 years</option>
+  <option value='5'>5 years</option>
 </Select>
-<Input type='tel' placeholder='Enter location' border="none" focusBorderColor="white" width="500px" />
-<Button backgroundColor='#457eff' color="white" width="250px" height="50px" fontSize="20px" _hover={{color:"black"}} borderRadius="full" >Search</Button>
+<Input type='tel'value={location} onChange={(e)=>{setLocation(e.target.value)}} placeholder='Enter location' border="none" focusBorderColor="white" width="500px" />
+<Button backgroundColor='#457eff' color="white" width="250px" height="50px" fontSize="20px" _hover={{color:"black"}} borderRadius="full" onClick={handlesearch} >Search</Button>
             </div>
             <div>
             <Button leftIcon={<RepeatClockIcon/>} borderRadius="full" marginTop="20px" marginBottom="0px" backgroundColor="white" color="gray" border="1.26923px solid #eaf1f5" boxShadow="0 4px 12px rgb(86 141 187 / 12%)" fontSize="sm" variant='solid'>devloper,pune,fresher 29 new</Button>

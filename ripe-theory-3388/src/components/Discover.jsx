@@ -6,14 +6,14 @@ export default function Discover(){
        return(
         <>
      <div style={{display:"flex",alignItems:"center",jsutifyContent:"center",width:"75%",height:"400px",background:"#fef9f4",margin:"auto"}}>
-        <div style={{width:"40%",height:"300px",marginLeft:"10%",textAlign:"left",marginTop:"30px"}}>
+        <div style={{width:"40%",height:"300px",marginLeft:"10%",textAlign:"left",marginTop:"30px",background:"#fef9f4"}}>
         <Image
     boxSize='100px'
-    objectFit='cover'
+    objectFit='cover' background="#fef9f4"
     src='https://static.naukimg.com/s/0/0/i/role-collection.png'
     alt='Dan Abramov' />
-    <h1 style={{fontSize:"35px",marginBottom:"20px",fontWeight:"700"}}>Discover jobs across popular roles</h1>
-    <p style={{color:"#8292b4"}}>Select a role and we'll show you relevant jobs for it!</p>
+    <h1 style={{fontSize:"35px",marginBottom:"20px",fontWeight:"700",background:"#fef9f4"}}>Discover jobs across popular roles</h1>
+    <p style={{color:"#8292b4",background:"#fef9f4"}}>Select a role and we'll show you relevant jobs for it!</p>
         </div>
 
         <div style={{width:"40%",height:"400px",backgroundColor:"white"}}>

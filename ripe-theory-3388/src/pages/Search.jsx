@@ -11,8 +11,7 @@ import Footer from "../components/Footer";
 export default function Search(){
      const navigate= useNavigate();
      const [loading,setLoading]=useState(true)
-    //  const [loading,setLoading]=useState(true)
-
+    
     setTimeout(()=>{
       setLoading(false)
     },2000)
@@ -24,18 +23,15 @@ export default function Search(){
       axios(`https://www.arbeitnow.com/api/job-board-api?per_page=10&page=1`,{
         method:"get",
       })
-        // .then((res)=>res.json())
-        // .then((res)=>{res.json()})
+       
         .then((res)=>{
-          // let searcharr=[];
+         
           localStorage.removeItem("searcharr");
           localStorage.setItem("searcharr",JSON.stringify(res.data.data));   
-        //  window.location.reload(); 
+       
         })
       }
-    //   setTimeout(() => {
-    //     setLoading(false)
-    // }, 2000);
+  
   useEffect(()=>{
     handlesearchplus();
   },[])

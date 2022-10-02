@@ -20,10 +20,8 @@ export default function SearchDreamJob(){
   axios(`https://www.arbeitnow.com/api/job-board-api?per_page=10&page=1`,{
     method:"get",
   })
-    // .then((res)=>res.json())
-    // .then((res)=>{res.json()})
+    
     .then((res)=>{
-      // let searcharr=[];
       localStorage.removeItem("searcharr");
       localStorage.setItem("searcharr",JSON.stringify(res.data.data));
       navigate("/searchresults")    

@@ -9,14 +9,14 @@ import Navbar from "../components/Navbar";
 export default function JobDescription(){
 
     var Loginuser=[JSON.parse(localStorage.getItem("Loginuser"))] ||undefined
-    console.log(Loginuser);
+    
     var lengthl=Loginuser.length;
-    console.log(lengthl);
+  
   
     const [num]=useState(0)
     const navigate=useNavigate();
     const params=useParams();
-    //console.log(params.id)
+    
     var searcharr=JSON.parse(localStorage.getItem("searcharr"))||[];
     var filterarr=JSON.parse(localStorage.getItem("filtered"))||[];
    
@@ -30,10 +30,7 @@ export default function JobDescription(){
       localStorage.setItem("filtered",JSON.stringify(filtered));
     }
     checkdata();
-    // useEffect(()=>{
-    //     checkdata();
-    // },[])
- 
+    
     
     return (
        

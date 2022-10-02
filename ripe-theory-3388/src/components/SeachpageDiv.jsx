@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 export default function AirbnbCard(props) {
     const navigate=useNavigate();
     const {eld}=props;
-    console.log(eld);
 
     return (
       <div onClick={()=>{navigate(`/searchresults/${eld.slug}`)}}

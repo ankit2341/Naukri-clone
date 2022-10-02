@@ -69,7 +69,7 @@ export default function SearchDreamJob(){
   <Box bg='white' height='60px' borderRadius="full">
   <Button leftIcon={<ArrowUpDownIcon InfoIcon color="blue.300"/>} rightIcon={<ArrowForwardIcon />} _hover={{boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}} color='#1B2437' borderRadius="10px" fontWeight= "500"
     fontSize="17px"
-    lineHeight= "22px"
+    lineHeight= "22px" onClick={()=>{navigate("/searchresults")}}
      backgroundColor="#fff" border= "1px solid #EAF1F5" width="100%" height="100%" variant='outline'>
     Remote
   </Button>
@@ -77,7 +77,7 @@ export default function SearchDreamJob(){
   <Box bg='white' height='60px'>
   <Button leftIcon={<AtSignIcon InfoIcon color="purple.600"/>} rightIcon={<ArrowForwardIcon />} _hover={{boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}} color='#1B2437' borderRadius="10px" fontWeight= "500"
     fontSize="17px"
-    lineHeight= "22px"
+    lineHeight= "22px" onClick={()=>{navigate("/searchresults")}}
      backgroundColor="#fff" border= "1px solid #EAF1F5" width="100%" height="100%" variant='outline'>
     MNC
   </Button>
@@ -85,7 +85,7 @@ export default function SearchDreamJob(){
   <Box bg='white' height='60px'>
   <Button leftIcon={<InfoIcon  color="blue.300"/>} rightIcon={<ArrowForwardIcon />} _hover={{boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}} color='#1B2437' borderRadius="10px" fontWeight= "500"
     fontSize="17px"
-    lineHeight= "22px"
+    lineHeight= "22px" onClick={()=>{navigate("/searchresults")}}
      backgroundColor="#fff" border= "1px solid #EAF1F5" width="100%" height="100%" variant='outline'>
     HR
   </Button>
@@ -94,7 +94,7 @@ export default function SearchDreamJob(){
   <Box bg="white" height='60px'>
 <Button leftIcon={<AtSignIcon  color="purple.600"/>} rightIcon={<ArrowForwardIcon />} color='#1B2437' _hover={{boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}} borderRadius="10px" fontWeight= "500"
     fontSize="17px"
-    lineHeight= "22px"
+    lineHeight= "22px" onClick={()=>{navigate("/searchresults")}}
      backgroundColor="#fff" border= "1px solid #EAF1F5" width="100%" height="100%" variant='outline'>
     Software
   </Button>
@@ -103,7 +103,7 @@ export default function SearchDreamJob(){
   <Box bg='white' height='60px'>
 <Button leftIcon={<InfoIcon InfoIcon color="blue.300"/>} rightIcon={<ArrowForwardIcon />} _hover={{boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}} color='#1B2437' borderRadius="10px" fontWeight= "500"
     fontSize="17px"
-    lineHeight= "22px"
+    lineHeight= "22px" onClick={()=>{navigate("/searchresults")}}
      backgroundColor="#fff" border= "1px solid #EAF1F5" width="100%" height="100%" variant='outline'>
     Temp wth
   </Button>
@@ -112,7 +112,7 @@ export default function SearchDreamJob(){
   <Box bg='white' height='60px'>
 <Button leftIcon={<AtSignIcon InfoIcon color="purple.600"/>} rightIcon={<ArrowForwardIcon />} _hover={{boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}} color='#1B2437' borderRadius="10px" fontWeight= "500"
     fontSize="17px"
-    lineHeight= "22px"
+    lineHeight= "22px" onClick={()=>{navigate("/searchresults")}}
      backgroundColor="#fff" border= "1px solid #EAF1F5" width="100%" height="100%" variant='outline'>
     Supply c...
   </Button>
@@ -123,7 +123,7 @@ export default function SearchDreamJob(){
   <Box bg='white' height='60px'>
 <Button leftIcon={<InfoIcon InfoIcon color="blue.300"/>} rightIcon={<ArrowForwardIcon />} _hover={{boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}} color='#1B2437' borderRadius="10px" fontWeight= "500"
     fontSize="17px"
-    lineHeight= "22px"
+    lineHeight= "22px" onClick={()=>{navigate("/searchresults")}}
      backgroundColor="#fff" border= "1px solid #EAF1F5" width="100%" height="100%" variant='outline'>
     Sales
   </Button>
@@ -132,7 +132,7 @@ export default function SearchDreamJob(){
   <Box bg='white' height='60px'>
 <Button leftIcon={<AtSignIcon  InfoIcon color="gold"/>} rightIcon={<ArrowForwardIcon />} _hover={{boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}} color='#1B2437' borderRadius="10px" fontWeight= "500"
     fontSize="17px"
-    lineHeight= "22px"
+    lineHeight= "22px" onClick={()=>{navigate("/searchresults")}}
      backgroundColor="#fff" border= "1px solid #EAF1F5" width="100%" height="100%" variant='outline'>
     Analytics
   </Button>
@@ -141,7 +141,7 @@ export default function SearchDreamJob(){
   <Box bg='white' height='60px'>
   <Button leftIcon={<InfoIcon color="blue.300"/>} rightIcon={<ArrowForwardIcon />} _hover={{boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}} color='#1B2437' borderRadius="10px" fontWeight= "500"
     fontSize="17px"
-    lineHeight= "22px"
+    lineHeight= "22px" onClick={()=>{navigate("/searchresults")}}
      backgroundColor="#fff" border= "1px solid #EAF1F5" width="100%" height="100%" variant='outline'>
     Project mg...
   </Button>
@@ -150,7 +150,7 @@ export default function SearchDreamJob(){
   <Box bg='white' height='60px'>
 <Button leftIcon={<AtSignIcon color="purple.600"/>} rightIcon={<ArrowForwardIcon />} _hover={{boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}} color='#1B2437' borderRadius="10px" fontWeight= "500"
     fontSize="17px"
-    lineHeight= "22px"
+    lineHeight= "22px" onClick={()=>{navigate("/searchresults")}}
      backgroundColor="#fff" border= "1px solid #EAF1F5" width="100%" height="100%" variant='outline'>
     Marketing
   </Button>
@@ -159,7 +159,7 @@ export default function SearchDreamJob(){
   <Box bg='white' height='60px'>
     <Button leftIcon={<InfoIcon color="gold"/>} rightIcon={<ArrowForwardIcon />} _hover={{boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}} color='#1B2437' borderRadius="10px" fontWeight= "500"
     fontSize="17px"
-    lineHeight= "22px"
+    lineHeight= "22px" onClick={()=>{navigate("/searchresults")}}
      backgroundColor="#fff" border= "1px solid #EAF1F5" width="100%" height="100%" variant='outline'>
     Banking
   </Button>

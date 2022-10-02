@@ -1,14 +1,16 @@
 import { ArrowForwardIcon } from "@chakra-ui/icons"
 import { Box, Image } from "@chakra-ui/react"
+import { useNavigate } from "react-router-dom"
 import "../Nvabar.css"
 
 export default function TopcompaniesHiring(){
+    const navigate=useNavigate();
     return (
         <>
         <h1 style={{fontSize:"28px",marginTop:"70px",fontWeight:"700",marginBottom:"30px"}}>Top Companies hiring now</h1>
 
-        <div className="Topcompanies" style={{display:"flex",alignItems:"center",justifyContent:"space-evenly",textAlign:"start",width:"80%",height:"150px",margin:"auto",marginBottom:"70px"}}>
-            <div  style={{padding:"20px 10px 20px 10px",border:"1px solid #EAF1F5",boxshadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px"}}>
+        <div className="Topcompanies" style={{display:"flex",alignItems:"center",justifyContent:"space-evenly",textAlign:"start",width:"80%",height:"150px",margin:"auto",marginBottom:"70px"}} >
+            <div onClick={()=>{navigate("/searchresults")}} style={{padding:"20px 10px 20px 10px",border:"1px solid #EAF1F5",boxshadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px"}}>
                 <h1 style={{color:"#1B2437",fontWeight:"700",fontSize:"17px"}} >MNCs<ArrowForwardIcon/></h1>
                 <p style={{color:"gray"}} >1.9k+ are now hiring</p>
                 <div style={{display:"flex",alignItems:"center",justifyContent:"space-evenly",paddingTop:"10px"}}>
@@ -19,7 +21,7 @@ export default function TopcompaniesHiring(){
                 </div>
             </div>
           
-            <div style={{padding:"20px 10px 20px 10px",border:"1px solid #EAF1F5"}}>
+            <div onClick={()=>{navigate("/searchresults")}} style={{padding:"20px 10px 20px 10px",border:"1px solid #EAF1F5"}}>
             <h1 style={{color:"#1B2437",fontWeight:"700",fontSize:"17px"}}>Fintech<ArrowForwardIcon/></h1>
                 <p style={{color:"gray"}}>4.2k+ are now hiring</p>
                 <div style={{display:"flex",alignItems:"center",justifyContent:"space-evenly",paddingTop:"10px"}}>
@@ -31,7 +33,7 @@ export default function TopcompaniesHiring(){
             </div>
 
 
-            <div style={{padding:"20px 10px 20px 10px",border:"1px solid #EAF1F5"}}>
+            <div onClick={()=>{navigate("/searchresults")}} style={{padding:"20px 10px 20px 10px",border:"1px solid #EAF1F5"}}>
             <h1 style={{color:"#1B2437",fontWeight:"700",fontSize:"17px"}}>FMCG & retail<ArrowForwardIcon/></h1>
                 <p style={{color:"gray"}}>3.1k+ are now hiring</p>
                 <div style={{display:"flex",alignItems:"center",justifyContent:"space-evenly",paddingTop:"10px"}}>
@@ -43,7 +45,7 @@ export default function TopcompaniesHiring(){
             </div>
 
 
-            <div style={{padding:"20px 10px 20px 10px",border:"1px solid #EAF1F5"}}>
+            <div onClick={()=>{navigate("/searchresults")}} style={{padding:"20px 10px 20px 10px",border:"1px solid #EAF1F5"}}>
             <h1 style={{color:"#1B2437",fontWeight:"700",fontSize:"17px"}}>Startups<ArrowForwardIcon/></h1>
                 <p style={{color:"gray"}}>1.3k+ are now hiring</p>
                 <div style={{display:"flex",alignItems:"center",justifyContent:"space-evenly",paddingTop:"10px"}}>
@@ -54,7 +56,7 @@ export default function TopcompaniesHiring(){
                 </div>
             </div>
 
-            <div style={{padding:"20px 10px 20px 10px",border:"1px solid #EAF1F5"}}>
+            <div onClick={()=>{navigate("/searchresults")}} style={{padding:"20px 10px 20px 10px",border:"1px solid #EAF1F5"}}>
             <h1 style={{color:"#1B2437",fontWeight:"700",fontSize:"17px"}}>Edtech<ArrowForwardIcon/></h1>
                 <p style={{color:"gray"}}>2.1k+ are now hiring</p>
                 <div style={{display:"flex",alignItems:"center",justifyContent:"space-evenly",paddingTop:"10px"}}>

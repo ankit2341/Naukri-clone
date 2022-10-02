@@ -2,7 +2,7 @@ import React,{useState} from "react";
 
 export const AuthContext=React.createContext();
 
-function AuthcontextProvider({children}){
+export default function AuthcontextProvider({children}){
 
     const [state,setState]=useState({
         isAuth:false
@@ -18,4 +18,10 @@ function AuthcontextProvider({children}){
             isAuth:false
         })
     }
+
+    return (
+        <AuthContext.Provider value={{state,LoginUser,LogoutUser}}>
+            {children}
+        </AuthContext.Provider>
+    )
 }

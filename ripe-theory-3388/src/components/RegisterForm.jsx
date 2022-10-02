@@ -1,7 +1,9 @@
 import { FormControl, FormLabel, Input, FormHelperText, InputGroup, InputLeftAddon, HStack, RadioGroup, Radio, Button, Checkbox, Image, Alert, AlertIcon } from "@chakra-ui/react";
-import { useState } from "react";
+import axios from "axios";
+import { useContext, useState } from "react";
 import Confetti from 'react-confetti'
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 import "../Register.css"
 
 
@@ -11,34 +13,54 @@ export default function RegistrationForm(){
   const [password,setPassword]=useState("");
   const [mobile,setMobile]=useState("");
   const navigate=useNavigate();
+  const {state,LoginUser}=useContext(AuthContext);
 
   var signinup=[JSON.parse(localStorage.getItem("signinup"))]||[];
 
-  function checkemail(Email){
-    let filter=signinup.filter((el)=>{
-      return Email===el.Email;
-    })
-    if(filter.length>0){return false}
-    else{return true}
-  }
+ 
   const handlesubmit=()=>{
     // event.preventdefault();
     let user={
       username:name,
-      Email:email,
-      Password:password,
-      Mobile: mobile
-    }
-    
-    if (checkemail(user.Email)==true){
-      signinup.push(user);
-      localStorage.setItem("signinup",JSON.stringify(user));
-      alert("Registration Success")
-    }
-    else{
-      alert("Account Already exists")
+      mobile:mobile,
+      email:email,
+      password :password
     }
 
+    function checkemail(data){
+      let filtered=data.filter((el)=>{
+          return el.email===user.email
+      })
+      if(filtered.length>0){
+        return false
+      }
+      else{
+        return true
+      }
+    }
+
+    axios.get("https://mocker-api.onrender.com/users")
+      .then((res)=>{
+        if(checkemail(res.data)===true){
+          fetch(`https://mocker-api.onrender.com/users`,{
+              method:"post",
+              headers:{
+                "Content-Type":"application/json"
+              },
+              body:JSON.stringify({name,mobile,email,password})
+             })
+             .then(res=>res.json())
+             .then((res)=>{
+                 alert("Register Successful");
+                 navigate("/")
+             })
+             .catch(err=>console.log(err))
+        }
+        else {
+          alert("Account already exists Login now");
+          navigate("/")
+        }
+      })
 }
 
   // console.log(username);

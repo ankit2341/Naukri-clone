@@ -1,8 +1,10 @@
 import { StarIcon } from "@chakra-ui/icons"
 import { Box, Button, Container, Image } from "@chakra-ui/react"
+import { useNavigate } from "react-router-dom"
 import { Badge } from "reactstrap"
 
 function AirbnbCarde() {
+  const navigate=useNavigate();
     const property1 = [
         {
       imageUrl: 'https://img.naukimg.com/logo_images/groups/v1/4602035.gif',
@@ -99,7 +101,7 @@ function AirbnbCarde() {
                     {property.description}
                   </Container>
                   <Box>
-                  <Button marginTop="20px" colorScheme='teal' variant='solid' style={{padding: "11px 20px",color: "#457EFF",fontWeight: "600",backgroundColor: "#F1F5FF"}} _hover={{color:"black"}}>View jobs</Button>
+                  <Button marginTop="20px" colorScheme='teal' variant='solid' style={{padding: "11px 20px",color: "#457EFF",fontWeight: "600",backgroundColor: "#F1F5FF"}} _hover={{color:"black"}} onClick={()=>{navigate("/searchresults")}}>View jobs</Button>
                   </Box>
                 </Box>
               </Box>
@@ -114,6 +116,7 @@ function AirbnbCarde() {
   }
 
   function AirbnbCardef(){
+    const navigate=useNavigate();
     const property1 = [
         {
       imageUrl: 'https://img.naukimg.com/logo_images/groups/v1/4658599.gif',
@@ -210,7 +213,7 @@ function AirbnbCarde() {
                     {property.description}
                   </Container>
                   <Box>
-                  <Button marginTop="20px" colorScheme='teal' variant='solid' style={{padding: "11px 20px",color: "#457EFF",fontWeight: "600",backgroundColor: "#F1F5FF"}} _hover={{color:"black"}}>View jobs</Button>
+                  <Button marginTop="20px" colorScheme='teal' variant='solid' style={{padding: "11px 20px",color: "#457EFF",fontWeight: "600",backgroundColor: "#F1F5FF"}} _hover={{color:"black"}} onClick={()=>{navigate("/searchresults")}}>View jobs</Button>
                   </Box>
                 </Box>
               </Box>

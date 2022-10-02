@@ -1,25 +1,25 @@
 import { useNavigate } from "react-router-dom";
 
-export default function AirbnbCard(props) {
+export default function JobDescriptionLeft(props) {
     const navigate=useNavigate();
     const {eld}=props;
     console.log(eld);
 
     return (
-      <div onClick={()=>{navigate(`/searchresults/${eld.slug}`)}}
+      <div
         style={{
           paddingTop: "20px",
           paddingBottom: "20px",
-          border: "1px solid #ebf0f6",
-          width: "600px",
+          border: "1px solid lightgray",
+          borderRadius:"5px",
+          width: "800px",
           height: "auto",
           margin:"auto",
-          boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px"
         }}
       >
         <div
           style={{
-            width: "500px",
+            width: "700px",
             margin: "auto",
             display: "flex",
             alignItems: "center",
@@ -44,7 +44,7 @@ export default function AirbnbCard(props) {
             height: "40px",
             alignItems: "center",
             justifyContent: "left",
-            width: "500px",
+            width: "700px",
             margin: "auto",
             fontSize: "14px"
           }}
@@ -110,7 +110,7 @@ export default function AirbnbCard(props) {
         <div
           style={{
             display: "flex",
-            width: "500px",
+            width: "700px",
             height: "30px",
             margin: "auto"
           }}
@@ -184,7 +184,7 @@ export default function AirbnbCard(props) {
         <div
           style={{
             display: "flex",
-            width: "500px",
+            width: "700px",
             height: "30px",
             alignItems: "center",
             margin: "auto"

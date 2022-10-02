@@ -1,7 +1,9 @@
 import { AddIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, FormLabel, Image, Input, InputGroup, InputLeftAddon, InputRightAddon, InputRightElement, Menu, MenuButton, MenuItem, MenuList, Select, Stack, Textarea, useDisclosure } from "@chakra-ui/react";
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 import "../Nvabar.css"
 
  function Jobs(){
@@ -80,28 +82,43 @@ function DrawerExample() {
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
     const navigate=useNavigate()
+    const {LoginUser}=useContext(AuthContext);
 
-
-    const handlesubmit=()=>{
-      // event.preventdefault();
-      
-     fetch(`https://reqres.in/api/login`,{
-      method:"post",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({email,password})
-     })
-     .then(res=>res.json())
-     .then(res=>{
-         if(res.token){
-          alert("login success")
-            navigate("/")
-         }
-     })
-     .catch(err=>console.log(err))
     
-  }
+  const handlesubmit=()=>{
+    // event.preventdefault();
+    let user={
+      email:email,
+      password:password
+    }
+
+    function checkemails(data){
+      let filtered=data.filter((el)=>{
+          return el.email===email
+      })
+      if(filtered.length>0){
+        return true
+      }
+      else{
+        return false
+      }
+    }
+    
+    axios.get("https://mocker-api.onrender.com/users")
+      .then((res)=>{
+        if(checkemails(res.data)===true){
+              alert("Login Successfull");
+              localStorage.removeItem("Loginuser");
+              localStorage.setItem("Loginuser",JSON.stringify(user))
+              window.location.reload();
+        }
+        else{
+          alert("Wrong credentials or it appears you have not registered");
+          navigate("/register")
+        }
+      })
+
+}
   
     return (
       < >
@@ -113,8 +130,8 @@ function DrawerExample() {
           placement='right'
           initialFocusRef={firstField}
           onClose={onClose}
-          size="sm" 
-          style={{paddingLeft:"50px"}}
+          size="md" 
+          // style={{paddingLeft:"50px"}}
         >
           <DrawerOverlay />
           <DrawerContent>
@@ -148,17 +165,17 @@ function DrawerExample() {
         placeholder='Enter password' style={{marginBottom:"0px",border:"1px solid black",borderRadius:"0px"}}
       />
       <InputRightElement width='4.5rem'>
-        <Button h='1.75rem' size='sm' >
-          {show ? 'Hide' : 'Show'}
+        <Button h='1.75rem' size='sm' onClick={handleClick}>
+          {show ? 'Hide' : 'Show'} 
         </Button>
       </InputRightElement>
     </InputGroup>
     <FormLabel htmlFor='username' fontSize="14px" marginBottom="15px" marginTop="10px" color="blue" fontWeight="normal" textAlign="right" >Forgot Password?</FormLabel>
                 </Box>
-                <Button backgroundColor='#4a90e2' color="white" borderRadius="0px" boxShadow="0 2px 6px 0 rgb(0 0 0 / 20%);" _hover={{color:"black"}} size="md" onclick={handlesubmit}>Login</Button>
-                <Button Color='#457eff' textDecoration="none" variant='link' marginBottom="10px">Use OTP to Login</Button>
+                <Button backgroundColor='#4a90e2' color="white" borderRadius="0px" boxShadow="0 2px 6px 0 rgb(0 0 0 / 20%);" _hover={{color:"black"}} size="md" onClick={handlesubmit}>Login</Button>
+                <Button Color='#457eff' textDecoration="none" variant='link' marginBottom="10px" onClick={()=>{alert("coming soon! sorry for inconvinience (:c)")}} >Use OTP to Login</Button>
                 <p style={{color:"gray",marginTop:"10px",marginBottom:"0px"}}>-------------------------------or------------------------------</p>
-                <Button _hover={{backgroundColor:"lightgray"}} leftIcon="" colorScheme='#457eff' marginTop="0px" boxShadow="rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px" variant='ghost'>
+                <Button onClick={()=>{alert("coming soon! sorry for inconvinience (:c)")}} _hover={{backgroundColor:"lightgray"}} leftIcon="" colorScheme='#457eff' marginTop="0px" boxShadow="rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px" variant='ghost'>
                 <Image
   borderRadius='full'
   boxSize='30px' marginLeft="0px" marginTop="0px"

@@ -11,7 +11,7 @@
 
 ## About the project
 
-This project is clone of well known website known as Naukri implemented by me. 
+This project is clone of well known website known as Naukri implemented by me. All copyrights are reserved by respected company. Thpe purpose of creating this project is to start my journey in react.
 
 
 

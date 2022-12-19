@@ -17,7 +17,7 @@ This project is clone of well known website known as Naukri implemented by me.
 
 ## Demo
 
-deployed link for demo:- https://foodpanda-clone-educational.vercel.app/
+deployed link for demo:- https://ripe-theory-3388.netlify.app/
 
 
 ## Technologies

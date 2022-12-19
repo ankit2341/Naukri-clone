@@ -30,7 +30,7 @@ deployed link for demo:- https://ripe-theory-3388.netlify.app/
 - NPM Packages
 - API
 - CSS
-x
+
 ## Status
 
 This project is in devlopment.
